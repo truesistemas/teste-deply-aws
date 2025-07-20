@@ -1,0 +1,22 @@
+{
+  "name": "teste-deploy-aws",
+  "description": "Aplicação Next.js 15 para teste de deploy",
+  "version": "1.0.0",
+  "type": "app",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "startCommand": "npm start",
+  "port": 3000,
+  "environment": {
+    "NODE_ENV": "production",
+    "NEXT_TELEMETRY_DISABLED": "1"
+  },
+  "healthCheck": {
+    "path": "/api/hello",
+    "interval": 30
+  },
+  "resources": {
+    "memory": "512Mi",
+    "cpu": "0.5"
+  }
+}
