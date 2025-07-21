@@ -1,5 +1,5 @@
-#!/bin/sh
-echo "Starting Next.js application..."
-echo "NODE_ENV: $NODE_ENV"
-echo "PORT: $PORT"
-exec npm start
+#!/bin/bash
+echo "Iniciando servidor de teste..."
+echo "Porta: ${PORT:-3000}"
+echo "Hostname: 0.0.0.0"
+exec node test-server.js

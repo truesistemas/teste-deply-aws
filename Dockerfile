@@ -1,5 +1,8 @@
 FROM node:18-alpine
 
+# Instalar bash para scripts
+RUN apk add --no-cache bash
+
 WORKDIR /app
 
 # Copiar package files
@@ -10,6 +13,10 @@ RUN npm install
 
 # Copiar código
 COPY . .
+
+# Copiar script de deploy
+COPY deploy.sh ./
+RUN chmod +x deploy.sh
 
 # Build
 RUN npm run build
@@ -22,4 +29,4 @@ ENV NODE_ENV=production
 ENV PORT=3000
 
 # Start
-CMD ["npm", "start"]
+CMD ["./deploy.sh"]
